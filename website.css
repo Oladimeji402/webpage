@@ -14,3 +14,132 @@
     background-image: url(https://www.qatarairways.com/content/dam/images/renditions/horizontal-1/campaigns/gcc/region/hn-early-summer-collage.jpg);
 
 }
+
+.drac:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
+  }
+  .suggestions-container {
+    width: 30%;
+    max-height: 200px; 
+    overflow-y: auto;
+    position: absolute;
+    z-index: 1000;
+    background-color: #fff;
+    border: 0;
+    
+    border-top: none; 
+    border-radius: 0 0 5px 5px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  #countryInput {
+    width: 30%;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-radius: 0;
+  }
+  .input-group {
+    width: 30%;
+  }
+.suggestions-container div {
+    padding: 10px;
+    cursor: pointer;
+}
+
+  
+
+
+
+.image-container {
+    position: relative;
+    width: 500px;
+    margin-top: 5px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.image-info {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    width: 100%;
+    position: absolute;
+    bottom: -75px;
+    transition: bottom 0.3s ease;
+    padding: 10px;
+}
+
+.image-container:hover .image-info {
+    bottom: 0;
+}
+
+.image-info h4 {
+    margin-top: 0;
+    font-size: 18px;
+}
+
+.image-info p {
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+.image-info button {
+    background-color: #8E2157;
+    width: 200px;
+    border-radius: 5px;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.image-info button:hover {
+    background-color: #6c1a45;
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+@media (max-width: 480px) {
+    .image-container {
+      width: 100%; 
+    }
+    .image-info {
+      padding: 2px; 
+    }
+    .image-info button {
+      width: 100px; 
+    }
+  }
+  
+  
+  
+
+.hover-underline {
+    position: relative;
+    display: inline-block;
+    color: #8E2157; 
+    text-decoration: none;
+    transition: color 0.3s ease; 
+  }
+  
+  .hover-underline::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0; 
+    height: 2px; 
+    background-color: #8E2157;
+    transition: width 0.3s ease; 
+  }
+  
+  .hover-underline:hover::before {
+    width: 100%;
+  }
+  
+  .hover-underline:hover {
+    color: #8E2157; 
+  }
+  
+

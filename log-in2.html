@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nihilism Card</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0; 
+        }
+        .card {
+            width: 320px;
+            padding: 30px;
+            background: #fff;
+            border: 8px solid #8E2157;
+            box-shadow: 15px 15px 0 #8E2157;
+            transform: rotate(-2deg);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            text-align: center; 
+        }
+        .card:active {
+            animation: shake 0.5s ease-in-out;
+        }
+        .card:hover {
+            transform: rotate(0deg) scale(1.02);
+            box-shadow: 20px 20px 0 #8E2157;
+        }
+        .banner {
+            position: absolute;
+            top: 3px;
+            right: -95px;
+            background: #8E2157;
+            color: #fff;
+            padding: 15px;
+            width: 350px;
+            text-align: center;
+            transform: rotate(45deg);
+            font-weight: bold;
+            font-size: 18px;
+            letter-spacing: 2px;
+            overflow: hidden;
+            transition: background 0.5s ease;
+        }
+        .banner-text {
+            display: inline-block;
+            transition: opacity 0.5s ease, transform 0.5s ease;
+            width: 100%;
+            position: absolute;
+            left: 13%;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .banner:hover .banner-text:first-child {
+            opacity: 0;
+            transform: translateY(-100%);
+        }
+        .banner:hover .banner-text:last-child {
+            opacity: 1;
+            transform: translateY(-40%);
+        }
+        .banner-text:last-child {
+            opacity: 0;
+            transform: translateY(60%);
+        }
+        .banner:hover {
+            background: #000;
+        }
+        .card__title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #000;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            display: block;
+            border-bottom: 2px solid #8E2157;
+            width: 50%; 
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .card__subtitle {
+            font-size: 16px;
+            line-height: 1.4;
+            color: #333;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+        }
+        .card__form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .card__form input {
+            padding: 12px;
+            border: 4px solid #8E2157;
+            font-size: 16px;
+            font-family: "Proxima Nova", sans-serif;
+            transition: all 0.3s ease;
+            background-color: #fff;
+            margin-left: auto;
+            margin-right: auto;
+            width: 80%;
+            box-sizing: border-box; 
+        }
+        .card__form input:focus {
+            outline: none;
+            transform: scale(1.05);
+        }
+        .sign-up {
+            border: 4px solid #8E2157;
+            background: #8E2157;
+            color: #fff;
+            padding: 12px;
+            font-size: 18px;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 80%; 
+            margin-left: auto;
+            margin-right: auto;
+            box-sizing: border-box; 
+        }
+        .sign-up:hover {
+            background: #fff;
+            color: #8E2157;
+            transform: translateY(-5px);
+            box-shadow: 0 5px 0 #8E2157;
+        }
+        .sign-up:active {
+            animation: shake 0.5s ease-in-out;
+            transform: translateY(0);
+            box-shadow: none;
+        }
+        @keyframes shake {
+            0% {
+                transform: translateX(0);
+            }
+            25% {
+                transform: translateX(-5px);
+            }
+            50% {
+                transform: translateX(5px);
+            }
+            75% {
+                transform: translateX(-5px);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="banner">
+          <span class="banner-text">SUBSCRIBE</span>
+          <span class="banner-text">JOIN US</span>
+        </div>
+        <span class="card__title">WEBSICO</span>
+        <p class="card__subtitle">Log in / Sign-up with your Credentials</p>
+        <form class="card__form">
+          <input id="emailInput" placeholder="Your User name / Email" type="email" required="" />
+          <button class="sign-up" id="signUpButton">Sign up</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('signUpButton').addEventListener('click', function(event) {
+            var emailInput = document.getElementById('emailInput');
+            if (!emailInput.value) {
+                event.preventDefault(); 
+                alert('Please enter your user name / email.');
+            } else {
+                window.location.href = 'file:///C:/Users/OLADIMEJI/Desktop/website/website.html#'; 
+            }
+        });
+    </script>
+</body>
+</html>
