@@ -31,17 +31,89 @@
                         <li class="nav-item">
                             <a class="nav-link active hover-underline" aria-current="page" href="#">Explore</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link hover-underline" href="#">Book</a>
+                        <li class="nav-item dropdown dropdown-start">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Book
+                            </a>
+                            <ul class="dropdown-menu mega-menu  centered-dropdown border-0"
+                                aria-labelledby="navbarDropdown" style="background-color: #fff; color: #1AA3F7;">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-3">
+                                            <h5>Plan your trip</h5>
+                                            <ul class="list-unstyled">
+                                                <li>
+                                                    <img class=""
+                                                        src="https://www.qatarairways.com/content/dam/images/custom/mdd/mobile-icons/Hotels.svg"
+                                                        alt="" width="24px" height="24px">
+                                                    <a href="#">Hotels</a>
+                                                </li>
+                                                <li>
+                                                    <img class=""
+                                                        src="https://www.qatarairways.com/content/dam/images/custom/mdd/mobile-icons/Car.svg"
+                                                        alt="" width="24px" height="24px">
+                                                    <a href="#">Car Rentals</a>
+                                                </li>
+                                                <li>
+                                                    <img class=""
+                                                        src="https://www.qatarairways.com/content/dam/images/custom/mdd/mobile-icons/meet_greet.svg"
+                                                        alt="" width="24px" height="24px">
+                                                    <a href="#">Meet and Great</a>
+                                                </li>
+                                                <li>
+                                                    <img class=""
+                                                        src="https://www.qatarairways.com/content/dam/images/custom/mdd/mobile-icons/travel.svg"
+                                                        alt="" width="24px" height="24px">
+                                                    <a href="#">Travel Insurance</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-2">
+                                            <h5>Travel Information</h5>
+                                            <ul class="list-unstyled">
+                                                <li><a href="#">Travel requirement</a></li>
+                                                <li><a href="#">Our Partners</a></li>
+                                                <li><a href="#">One world</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-4">
+                                            <h5>Group and Buisness Travels</h5>
+                                            <div class="row">
+                                                <div class="col-4">
+                                                    <img src="https://www.qatarairways.com/content/dam/images/renditions/vertical/brand/aircraft/v-beyond-business-corporate-building.jpg"
+                                                        alt="" style="height: 150px; width: 100px;">
+                                                </div>
+                                                <div class="col-8">
+                                                    <ul class="list-unstyled">
+                                                        <li><a href="#">Beyound Business</a></li>
+                                                        <li><a href="#">Meetings and events</a></li>
+                                                        <li><a href="#">Corporate Travels</a></li>
+                                                        <li><a href="#">Group Travels</a></li>
+                                                        <li><a href="#">Sports Travels</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-3">
+                                            <img src="https://www.qatarairways.com/content/dam/images/mobile/miscellaneous/beach/m-maldives-beach.jpg"
+                                                alt="" style="width: 180px; height: 190px;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </ul>
                         </li>
+
                         <li class="nav-item">
                             <a class="nav-link hover-underline" href="#">Experience</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link hover-underline" href="#">Privilege club</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link hover-underline" href="#">Help</a>
+                        </li>
+                        <li class="nav-item gay">
+                            <button type="button" class="nav-link btn active" data-bs-toggle="modal"
+                                data-bs-target="#loginModal" style="border: 3px solid #8E2157;"><span><i
+                                        class="fa-regular fa-user" style="color: #fff;"></i></span> Login</button>
                         </li>
                     </ul>
                 </div>
@@ -52,6 +124,39 @@
             <p class="heroimage-subtitle h6"> Summer adventures await </p>
             <button class="btn btn-lg text-light border rounded-pill kool mt-5">Book now</button>
         </div>
+        <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="loginModalLabel">Login</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- Login form -->
+                        <form>
+                            <div class="mb-3">
+                                <label for="username" class="form-label">Username</label>
+                                <input type="text" class="form-control" id="username" placeholder="Enter username">
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Password</label>
+                                <input type="password" class="form-control" id="password" placeholder="Enter password">
+                            </div>
+                            <div class="mb-3 form-check">
+                                <input type="checkbox" class="form-check-input" id="rememberMe">
+                                <label class="form-check-label" for="rememberMe">Remember me</label>
+                            </div>
+                            <button type="submit" class="btn text-light"
+                                style="background-color: #8E2157;">Login</button>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </section>
     <!-- header ends -->
 
@@ -650,7 +755,7 @@
         </div>
     </section>
 
-    
+
 
 
 
