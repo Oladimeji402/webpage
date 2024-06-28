@@ -89,3 +89,14 @@ $(document).ready(function() {
       $('#countryList').html('');
   });
 });
+document.addEventListener('DOMContentLoaded', function () {
+  const loginForm = document.getElementById('loginForm');
+  const signupForm = document.getElementById('signupForm');
+  const switchToSignUpBtn = document.getElementById('switchToSignUp');
+
+  switchToSignUpBtn.addEventListener('click', function () {
+      loginForm.style.display = 'none';
+      signupForm.style.display = 'block';
+      switchToSignUpBtn.style.display = 'none'; // Hide the switch button after switching to sign up
+  });
+});

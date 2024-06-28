@@ -105,9 +105,11 @@
 }
 .centered-dropdown {
   position: absolute;
+  padding: 15px;
   left: 50%;
   transform: translateX(-65%);
-  width: 80vw;
+  height: 30vw;
+  width: 100vw;
   background-color: #1AA3F7; 
 }
 
