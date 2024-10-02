@@ -18,6 +18,8 @@
 
 <body>
 
+    <div class="loader"></div>
+
     <!-- header start  -->
     <section class="page">
         <nav class="navbar navbar-expand-lg navbar-dark">
@@ -42,6 +44,10 @@
                             <ul class="dropdown-menu mega-menu  centered-dropdown border-0"
                                 aria-labelledby="navbarDropdown" style="background-color: #fff; color: #1AA3F7;">
                                 <div class="container">
+                                    <div class="col-12 text-end">
+                                        <button type="button" class="btn-close" aria-label="Close"
+                                            data-bs-dismiss="dropdown"></button>
+                                    </div>
                                     <div class="row mt-5">
                                         <div class="col-3">
                                             <h5>Plan your trip</h5>
@@ -113,10 +119,10 @@
                         <li class="nav-item">
                             <a class="nav-link hover-underline" href="#">Help</a>
                         </li>
-                        <li class="nav-item gay">
+                        <li class="nav-item gay-hover">
                             <button type="button" class="nav-link btn active border-0" data-bs-toggle="modal"
-                                data-bs-target="#loginModal"><span><i
-                                        class="fa-regular fa-user" style="color: #fff;"></i></span> Login / Sign
+                                data-bs-target="#loginModal"><span><i class="fa-regular fa-user"
+                                        style="color: #fff;"></i></span> Login / Sign
                                 Up</button>
                         </li>
                     </ul>
@@ -124,9 +130,11 @@
             </div>
         </nav>
         <div class=" mt-sm-5 ms-5 text-white">
+            <h1 id="Sulaimon"></h1>
             <h1> Save up to 25%*</h1>
             <p class="heroimage-subtitle h6"> Summer adventures await </p>
-            <button class="btn btn-lg text-light border rounded-pill kool mt-5">Book now</button>
+            <a href="#" class="btn btn-lg text-light border rounded-pill kool mt-5" style="text-decoration: none;">Book
+                now</a>
         </div>
         <!-- Bootstrap Modal for Login and Sign Up -->
         <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
@@ -153,7 +161,8 @@
                                 <input type="checkbox" class="form-check-input" id="rememberMe">
                                 <label class="form-check-label" for="rememberMe">Remember me</label>
                             </div>
-                            <button type="submit" class="btn text-light" style="background-color: #8E2157;">Login</button>
+                            <button type="submit" class="btn text-light"
+                                style="background-color: #8E2157;">Login</button>
                         </form>
                     </div>
 
@@ -175,7 +184,8 @@
                                 <input type="password" class="form-control" id="signupPassword" name="signupPassword"
                                     placeholder="Password">
                             </div>
-                            <button type="submit" class="btn text-light" style="background-color: #8E2157;">Sign Up</button>
+                            <button type="submit" class="btn text-light" style="background-color: #8E2157;">Sign
+                                Up</button>
                         </form>
                     </div>
 
@@ -187,7 +197,8 @@
                             <i class="fa-brands fa-google fa-lg" style="color: #511f50;"></i>
                         </a>
                         <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
-                        <button type="button" class="btn text-light" id="switchToSignUp"  style="background-color: #8E2157;">Sign Up</button>
+                        <button type="button" class="btn text-light" id="switchToSignUp"
+                            style="background-color: #8E2157;">Sign Up</button>
                     </div>
                 </div>
             </div>
@@ -225,23 +236,26 @@
                     <form action="/action_page.php" style="display: flex; gap: 15px; margin-top: 12px;">
                         <div class="form-check">
                             <input type="radio" class="form-check-input" id="check1" name="option" value="return"
-                                checked>
+                                onclick="toggleFlightOptions('return')" checked>
                             <label class="form-check-label" for="check1">Return</label>
                         </div>
                         <div class="form-check">
-                            <input type="radio" class="form-check-input" id="check2" name="option" value="one-way">
+                            <input type="radio" class="form-check-input" id="check2" name="option" value="one-way"
+                                onclick="toggleFlightOptions('one-way')">
                             <label class="form-check-label" for="check2">One way</label>
                         </div>
                         <div class="form-check">
-                            <input type="radio" class="form-check-input" id="check3" name="option" value="multi-city">
+                            <input type="radio" class="form-check-input" id="check3" name="option" value="multi-city"
+                                onclick="toggleFlightOptions('multi-city')">
                             <label class="form-check-label" for="check3">Multi-city</label>
                         </div>
                     </form>
 
-                    <div class="input-group mb-3">
+                    <div id="return-flight" class="input-group mb-3">
                         <span class="input-group-text">Return-</span>
                         <span class="input-group-text">From - To ?</span>
-                        <span class="input-group-text">11:55am to 6:00pm</span>
+                        <input type="date" class="input-group-text">
+                        <input type="date" class="input-group-text">
                         <input type="text" class="form-control">
                         <span>
                             <form action="/action_page.php">
@@ -255,10 +269,10 @@
                             </form>
                         </span>
                     </div>
-                    <div class="input-group mb-3">
+                    <div id="one-way-flight" class="input-group mb-3">
                         <span class="input-group-text">One way -</span>
-                        <span class="input-group-text">From To ?</span>
-                        <span class="input-group-text">8:30am to 10:00am</span>
+                        <span class="input-group-text">From</span>
+                        <input type="date" class="input-group-text">
                         <input type="text" class="form-control">
                         <span>
                             <form action="/action_page.php">
@@ -272,10 +286,10 @@
                             </form>
                         </span>
                     </div>
-                    <div class="input-group mb-3">
+                    <div id="multi-city-flight" class="input-group mb-3">
                         <span class="input-group-text">Multi-city_</span>
                         <span class="input-group-text">From - To</span>
-                        <span class="input-group-text">3:45pm to 7:50pm</span>
+                        <input type="date" class="input-group-text">
                         <input type="text" class="form-control">
                         <span>
                             <form action="/action_page.php">
@@ -288,6 +302,10 @@
                                 </div>
                             </form>
                         </span>
+                    </div>
+                    <div style="display: flex; justify-content: end;">
+                        <button class="btn btn-lg rounded-pill p-3"
+                            style="background-color: #8E2157; color: #fff; justify-content: end;">Search Flight</button>
                     </div>
                 </div>
                 <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
@@ -429,7 +447,7 @@
                                         </div>
                                         <div class="col-md-4">
                                             <button class="btn btn-lg rounded-pill text-light"
-                                                style="background-color: #8E2157; width: 300px; "><span
+                                                style="background-color: #8E2157; width: 200px; "><span
                                                     style="font-size: 1rem;">Retrieve
                                                     booking</span></button>
                                         </div>
@@ -455,7 +473,7 @@
                                         </div>
                                         <div class="col-md-4">
                                             <button class="btn btn-lg rounded-pill text-light"
-                                                style="background-color: #8E2157; width: 300px; "><span
+                                                style="background-color: #8E2157; width: 200px; "><span
                                                     style="font-size: 1rem;">Check
                                                     in</span></button>
                                         </div>
@@ -467,36 +485,38 @@
                 </div>
             </div>
         </div>
+        </div>
+        </div>
     </section>
 
     <section class="close mt-5 d-none d-lg-block">
         <div class="container">
             <h1 style="color: #1F212B; font-weight: 100;">Start planning your next trip</h1>
             <p>Thinking of travelling somewhere soon? Here are some options to help you get started.</p>
-            <div class="row">
-                <div class="col-md-3 col-12">
-                    <div class="card rounded bg-light mt-3 border-0 drac" style="width: 16rem; height: 9cm;">
+            <div class="rowed">
+                <div class="">
+                    <div class="card  rounded bg-light mt-3 border-0 drac" style="width: 14rem; height: 8cm;">
                         <img src="https://www.qatarairways.com/content/dam/images/renditions/horizontal-2/campaigns/global/experience-qatar/h2-experience-qatar-family.jpg"
                             class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h3 class="card-title" style="font-weight: 100;">An unforgettable holiday in Websico</h3>
+                            <h4 class="card-title" style="font-weight: 100;">An unforgettable holiday in Websico</h4>
                             <hr>
-                            <div style="font-size: 1.4rem;">
+                            <div style="font-size: 1.2rem;">
                                 <a href="#" class="text-dark" style="text-decoration: none;">Book now <span
-                                        style="padding-left: 2.4cm;"><i class="fa-solid fa-angle-right"
+                                        style="padding-left: 2cm;"><i class="fa-solid fa-angle-right"
                                             style="color: #010409;"></i></span></a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3 col-12">
-                    <div class="card bg-light mt-3 border-0 drac" style="width: 16rem; height: 9cm;">
+                <div class="rowe">
+                    <div class="card bg-light mt-3 border-0 drac" style="width: 14rem; height: 8cm;">
                         <img src="https://www.qatarairways.com/content/dam/images/renditions/horizontal-2/destinations/maldives/maldives/h2-maldives-beach-sunrise.jpg"
                             class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h3 class="card-title" style="font-weight: 100;">Your perfect holiday awaits</h3>
+                            <h4 class="card-title" style="font-weight: 100;">Your perfect holiday awaits</h4>
                             <hr>
-                            <div style="font-size: 1.4rem;">
+                            <div style="font-size: 1.2rem;">
                                 <a href="#" class="text-dark" style="text-decoration: none;">Book a package<span
                                         style="padding-left: 1cm;"><i class="fa-solid fa-angle-right"
                                             style="color: #010409;"></i></span></a>
@@ -505,14 +525,14 @@
                     </div>
 
                 </div>
-                <div class="col-md-3 col-12">
-                    <div class="card bg-light mt-3 border-0 drac" style="width: 16rem; height: 9cm;">
+                <div class="rowe">
+                    <div class="card bg-light mt-3 border-0 drac" style="width: 14rem; height: 8cm;">
                         <img src="https://www.qatarairways.com/content/dam/images/renditions/horizontal-3/brand/aircraft/a350/h3-a350-1000-doha2.jpg"
                             class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h3 class="card-title" style="font-weight: 100;">Travel requirement</h3>
+                            <h4 class="card-title" style="font-weight: 100;">Travel requirement</h4>
                             <hr>
-                            <div style="font-size: 1.4rem;">
+                            <div style="font-size: 1.2rem;">
                                 <a href="#" class="text-dark" style="text-decoration: none;">Find out more<span
                                         style="padding-left: 1.5cm;"><i class="fa-solid fa-angle-right"
                                             style="color: #010409;"></i></span></a>
@@ -520,14 +540,14 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3 col-12">
-                    <div class="card bg-light mt-3 border-0 drac" style="width: 16rem; height: 9cm;">
+                <div class="rowe">
+                    <div class="card bg-light mt-3 border-0 drac" style="width: 14rem; height: 8cm;">
                         <img src="https://www.qatarairways.com/content/dam/images/renditions/horizontal-3/brand/qsuite/h3-qsuite-ife-dine.jpg"
                             class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h4 class="card-title" style="font-weight: 100;">Elevate your experience</h4>
+                            <h5 class="card-title" style="font-weight: 100;">Elevate your experience</h5>
                             <hr>
-                            <div style="font-size: 1.4rem;">
+                            <div style="font-size: 1.2rem;">
                                 <a href="#" class="text-dark" style="text-decoration: none;">Purchase add-ons</a>
                             </div>
                         </div>
@@ -544,60 +564,60 @@
             <h1 style="color: #1F212B; font-weight: 100;">Start planning your next trip</h1>
             <p>Thinking of travelling somewhere soon? Here are some options to help you get started.</p>
             <div class="row">
-                <div class="col-md-3 col-12">
-                    <div class="card  bg-light mt-3 border-0 drac" style="width: 100%; height: 25rem;">
+                <div class="col-lg-3 col-md-6 col-12">
+                    <div class="card  bg-light mt-3 border-0 drac" style="width: 100%; height: 20rem;">
                         <img src="https://www.qatarairways.com/content/dam/images/renditions/horizontal-2/campaigns/global/experience-qatar/h2-experience-qatar-family.jpg"
                             class="card-img-top" alt="...">
                         <div class="card-body">
                             <h3 class="card-title" style="font-weight: 100;">An unforgettable holiday in Websico</h3>
                             <hr>
-                            <div style="font-size: 1.4rem;">
+                            <div style="font-size: 1.4rem;" class="gee">
                                 <a href="#" class="text-dark" style="text-decoration: none;">Book now <span
-                                        style="padding-left: 2.4cm;"><i class="fa-solid fa-angle-right"
+                                        style="padding-left: 2.4cm;"><i class="fa-solid fa-angle-right right"
                                             style="color: #010409;"></i></span></a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3 col-12">
-                    <div class="card bg-light mt-3 border-0 drac" style="width: 100%; height: 25rem;">
+                <div class="col-lg-3 col-md-6 col-12">
+                    <div class="card bg-light mt-3 border-0 drac" style="width: 100%; height: 20rem;">
                         <img src="https://www.qatarairways.com/content/dam/images/renditions/horizontal-2/destinations/maldives/maldives/h2-maldives-beach-sunrise.jpg"
                             class="card-img-top" alt="...">
                         <div class="card-body">
                             <h3 class="card-title" style="font-weight: 100;">Your perfect holiday awaits</h3>
                             <hr>
-                            <div style="font-size: 1.4rem;">
+                            <div style="font-size: 1.4rem;" class="gee">
                                 <a href="#" class="text-dark" style="text-decoration: none;">Book a package<span
-                                        style="padding-left: 1cm;"><i class="fa-solid fa-angle-right"
+                                        style="padding-left: 1cm;"><i class="fa-solid fa-angle-right right"
                                             style="color: #010409;"></i></span></a>
                             </div>
                         </div>
                     </div>
 
                 </div>
-                <div class="col-md-3 col-12">
+                <div class="col-lg-3 col-md-6 col-12">
                     <div class="card bg-light mt-3 border-0 drac" style="width: 100%; height: 25rem;">
                         <img src="https://www.qatarairways.com/content/dam/images/renditions/horizontal-3/brand/aircraft/a350/h3-a350-1000-doha2.jpg"
                             class="card-img-top" alt="...">
                         <div class="card-body">
                             <h3 class="card-title" style="font-weight: 100;">Travel requirement</h3>
                             <hr>
-                            <div style="font-size: 1.4rem;">
+                            <div style="font-size: 1.4rem;" class="gee">
                                 <a href="#" class="text-dark" style="text-decoration: none;">Find out more<span
-                                        style="padding-left: 1.5cm;"><i class="fa-solid fa-angle-right"
+                                        style="padding-left: 1.5cm;"><i class="fa-solid fa-angle-right right"
                                             style="color: #010409;"></i></span></a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3 col-12">
+                <div class="col-lg-3 col-md-6 col-12">
                     <div class="card bg-light mt-3 border-0 drac" style="width: 100%; height: 25rem;">
                         <img src="https://www.qatarairways.com/content/dam/images/renditions/horizontal-3/brand/qsuite/h3-qsuite-ife-dine.jpg"
                             class="card-img-top" alt="...">
                         <div class="card-body">
                             <h3 class="card-title" style="font-weight: 100;">Elevate your experience</h3>
                             <hr>
-                            <div style="font-size: 1.4rem;">
+                            <div style="font-size: 1.4rem;" class="gee">
                                 <a href="#" class="text-dark" style="text-decoration: none;">Purchase add-ons</a>
                             </div>
                         </div>
@@ -608,7 +628,7 @@
     </section>
 
 
-    <section class="mt-5 overflow-hidden">
+    <section class="mt-5 overflow-hidden luck" id="luck">
         <div class="container">
             <h1 style="font-weight: 100;">Find great fares</h1>
             <!-- <h6 class="d-flex mt-4">From <span class="border-left-0 border-right-0 d-flex align-items-end" style="padding-left: 8px;"><input type="text" class="w-100 border-0 border-bottom border-dark"></span><span><i class="fa-solid fa-pen" style="color: #0a0a0a;"></i></span></h6> -->
@@ -619,13 +639,13 @@
                 <div class="form-group position-relative d-flex gap-3 ">
                     <label for="countryInput">From</label>
                     <div class="input-group">
-                        <input type="text" id="countryInput" placeholder="Type to search..." style="width: 30%;">
+                        <input type="text" id="countryInput" placeholder="Type to search..." style="width: 50%;">
                         <div id="countryList" class="suggestions-container"></div>
                     </div>
                 </div>
             </div>
             <div class="row mt-5" style="justify-content: space-between">
-                <div class="col-md-4">
+                <div class="col-lg-4 col-md-12">
                     <div class="image-container">
                         <img src="https://www.qatarairways.com/content/dam/images/renditions/horizontal-2/destinations/united-kingdom/london/h2-gatwick-phone.jpg/jcr:content/renditions/rendition.733.425.jpg"
                             alt="London Heathrow" style="height: 360px;">
@@ -633,7 +653,7 @@
                         <div class="image-info text-light" style="font-weight: 500;">
                             <h3>London Heathrow</h3>
                             <div class="row">
-                                <div class="col-6 ">
+                                <div class="col-6">
                                     <p>25 Jul 2024 - 1 Oct 2024</p>
                                 </div>
                                 <div class="col-6">
@@ -646,9 +666,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-7">
+                <div class="col-lg-7">
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-lg-6 col-md-6">
                             <div class="imaged">
                                 <img src="https://www.qatarairways.com/content/dam/images/renditions/square/destinations/china/guangzhou/s-guangzhou-outdoor.jpg/jcr:content/renditions/rendition.360.360.jpg"
                                     alt="London Heathrow">
@@ -657,11 +677,11 @@
                                     <h4>Guangzhou Heathrow</h4>
                                     <p>1 Jul 2024 - 21 Oct 2024</p>
                                     <p>Economy from NGN 1359163</p>
-                                    <button class="text-light">Book now</button>
+                                    <button class="text-light w-100">Book now</button>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-lg-6 col-md-6">
                             <div class="imaged">
                                 <img src="https://www.qatarairways.com/content/dam/images/renditions/square/destinations/united-states/new-york/s-new-york-city4.jpg/jcr:content/renditions/rendition.360.360.jpg"
                                     alt="London Heathrow">
@@ -670,14 +690,14 @@
                                     <h4>New York</h4>
                                     <p>8 Sept 2024 - 11 Nov 2024</p>
                                     <p>Economy from NGN 1540748</p>
-                                    <button class="text-light">Book now</button>
+                                    <button class="text-light w-100">Book now</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-7">
+                    <div class="col-lg-7 col-md-12">
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="imaged">
@@ -688,7 +708,7 @@
                                         <h4>Manila(MNL)</h4>
                                         <p>1 OCT 2024 - 21 Oct 2024</p>
                                         <p>Economy from NGN 3615772</p>
-                                        <button class="text-light">Book now</button>
+                                        <button class="text-light w-100">Book now</button>
                                     </div>
                                 </div>
                             </div>
@@ -701,14 +721,14 @@
                                         <h4>Dallas</h4>
                                         <p>18 Sept 2024 - 19 Nov 2024</p>
                                         <p>Economy from NGN 1958956</p>
-                                        <button class="text-light">Book now</button>
+                                        <button class="text-light w-100">Book now</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-md-5">
+                    <div class="col-lg-5 col-md-12">
                         <div class="image-container">
                             <img src="https://www.southernliving.com/thmb/2xIANjcN_LmnK5EDBedskp4XjOg=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-546439338-72d28676e5704c439802ab6f971c4b3c.jpg"
                                 alt="London Heathrow" style="height: 365px;">
@@ -732,7 +752,7 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-md-5">
+                    <div class="col-lg-5 col-md-12">
                         <div class="image-container">
                             <img src="https://www.qatarairways.com/content/dam/images/renditions/horizontal-2/destinations/qatar/doha/h2-mia-doha.jpg/jcr:content/renditions/rendition.733.425.jpg"
                                 alt="London Heathrow" style="height: 365px;">
@@ -753,7 +773,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-7">
+                    <div class="col-lg-7">
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="imaged">
@@ -764,7 +784,7 @@
                                         <h4>Paris</h4>
                                         <p>1 OCT 2024 - 21 Oct 2024</p>
                                         <p>Economy from NGN 1474033</p>
-                                        <button class="text-light">Book now</button>
+                                        <button class="text-light w-100">Book now</button>
                                     </div>
                                 </div>
                             </div>
@@ -777,7 +797,7 @@
                                         <h4>Jeddha</h4>
                                         <p>18 Aug 2024 - 19 Nov 2024</p>
                                         <p>Economy from NGN 1245518</p>
-                                        <button class="text-light">Book now</button>
+                                        <button class="text-light w-100">Book now</button>
                                     </div>
                                 </div>
                             </div>
@@ -791,9 +811,117 @@
         </div>
     </section>
 
+    <section class="love">
+
+        <ul class="nav nav-pills mb-3 justify-content-center mt-5" id="pills-tab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link lot active underline text-dark" id="pills-home-tab" data-bs-toggle="pill"
+                    data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home"
+                    aria-selected="true">Privilege Club</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link lot underline text-dark" id="pills-profile-tab" data-bs-toggle="pill"
+                    data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile"
+                    aria-selected="false">Mobile App</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link lot underline text-dark" id="pills-contact-tab" data-bs-toggle="pill"
+                    data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact"
+                    aria-selected="false">New Baggage Allowance</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link lot underline text-dark" id="pills-life-tab" data-bs-toggle="pill"
+                    data-bs-target="#pills-life" type="button" role="tab" aria-controls="pills-life"
+                    aria-selected="false">Qsuite</button>
+            </li>
+        </ul>
+
+        <div class="tab-content" id="pills-tabContent">
+            <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                <div class="local p-5">
+                    <div class="her p-3">
+                        <h1 class="hj">Join Privilege Club</h1>
+                        <p>Earn Avios and use them towards shopping at Qatar Duty Free, Flight, upgrades, extra baggage,
+                            and more exclusive benefits</p>
+                        <button class="nuh hy">Join now</button>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                <div class="local1">
+                    <div class="her1 p-3">
+                        <h1 class="hj">Get more about our mobile app</h1>
+                        <p>Benefit from app-exclusive offers, personalized notification, seamless booking functions,
+                            journey tracking and more</p>
+                        <button class="nuh hy">Learn more</button>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+                <div class="local2">
+                    <div class="her3 p-3">
+                        <h1 class="hj">New Baggages Allowance</h1>
+                        <p>To better suit your travel needs, we are pleased to offer you our new baggage allowance when
+                            you fly from any African destination.</p>
+                        <button class="nuh hy">Learn more</button>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="pills-life" role="tabpanel" aria-labelledby="pills-file-tab">
+                <div class="local3">
+                    <div class="her1 p-3">
+                        <h1 class="hj">New Baggages Allowance</h1>
+                        <p>To better suit your travel needs, we are pleased to offer you our new baggage allowance when
+                            you fly from any African destination.</p>
+                        <button class="nuh hy">Learn more</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
 
+    <section class="den mx-5 mt-5 hok d-none d-md-block">
+        <div class="container cod">
+            <div class="row">
+                <div class="col-md-6"></div>
+                <div class="ned col-md-6 mt-5">
+                    <h1 class="text-light">Never miss an offer</h1>
+                    <p class="text-light">Subscribe and be the first to receive our exclusive offers.</p>
+                    <input class="jui" type="email" placeholder="Email address">
+                    <input class="jui" type="text" placeholder="Preferred city of departure"><br>
+                    <div style="display: flex; gap: 20px;">
+                        <input type="checkbox" class="ju" id="olad">
+                        <label for="olad" class="yeah">I would like to get offers and news from Qatar Airways. I have
+                            read and understood the <a href=""> privacy notice.</a></label>
+                    </div>
+                    <button class="nih hy">Subscribe</button>
+                </div>
+            </div>
+        </div>
+    </section>
 
+
+    <section class="den mx-4 mt-5 d-block d-md-none">
+        <div class="container cod">
+            <div class="row">
+                <div class="col-md-6"></div>
+                <div class="ned col-md-6 mt-5">
+                    <h1 class="text-light" style="font-size: 1.2rem;">Never miss an offer</h1>
+                    <p class="text-light">Subscribe and be the first to receive our exclusive offers.</p>
+                    <input class="jur" type="email" placeholder="Email address"><br>
+                    <div style="display: flex; gap: 20px;">
+                        <input type="checkbox" class="ju" id="olad">
+                        <label for="olad" class="yea">I would like to get offers and news from Qatar Airways. I have
+                            read and understood the <a href=""> privacy notice.</a></label>
+                    </div>
+                    <button class="nh hy">Subscribe</button>
+                </div>
+            </div>
+        </div>
+    </section>
+     
+   
 
 
     <script src="index.js"></script>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            background-repeat: no-repeat;
+background-image: url();
+            /* background-image: url(https://www.qatarairways.com/content/dam/images/renditions/horizontal-1/campaigns/global/destinations-promo/hn-alula-saudi.jpg); */
+        }
+    </style>
+</head>
+<body>
+    data-mobile-image="url(/content/dam/images/mobile/destinations/maldives/m-maldives-beach-ribbon.jpg);"
+    <!-- <label for="text"></label> -->
+    <i class="fa-brands fa-github"></i>
+    <legend></legend>
+    <input type="text" placeholder="your name">
+    <input type="email" placeholder="your email">
+    <input type="password" placeholder="Password">
+
+    <div data-mobile-fadecolor="" data-desktop-fadecolor="" data-mobile-image="url(/content/dam/images/mobile/campaign/gobal/destinations-promo/m-alula-saudi.jpg);" data-desktop-image="url(/content/dam/images/renditions/horizontal-1/campaigns/global/destinations-promo/hn-alula-saudi.jpg);" class="C1-video-bg" style="background-image:url(/content/dam/images/renditions/horizontal-1/campaigns/global/destinations-promo/hn-alula-saudi.jpg);"></div>
+</body>
+</html>
+
+
+<div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+        <form action="/action_page.php" style="display: flex; gap: 15px; margin-top: 12px;">
+            <div class="form-check">
+                <input type="radio" class="form-check-input" id="check1" name="option" value="return" checked onclick="toggleFlightOptions('return')">
+                <label class="form-check-label" for="check1">Return</label>
+            </div>
+            <div class="form-check">
+                <input type="radio" class="form-check-input" id="check2" name="option" value="one-way" onclick="toggleFlightOptions('one-way')">
+                <label class="form-check-label" for="check2">One way</label>
+            </div>
+            <div class="form-check">
+                <input type="radio" class="form-check-input" id="check3" name="option" value="multi-city" onclick="toggleFlightOptions('multi-city')">
+                <label class="form-check-label" for="check3">Multi-city</label>
+            </div>
+        </form>
+
+        <!-- Return Flight Section -->
+        <div id="return-flight" class="input-group mb-3">
+            <span class="input-group-text">Return-</span>
+            <span class="input-group-text">From - To ?</span>
+            <input type="date" class="input-group-text">
+            <input type="date" class="input-group-text">
+            <input type="text" class="form-control" placeholder="Destination">
+            <span>
+                <form action="/action_page.php">
+                    <div class="form-floating">
+                        <select class="form-select" id="sel1" name="sellist">
+                            <option>Economy</option>
+                            <option>Premium(Business/First)</option>
+                        </select>
+                    </div>
+                </form>
+            </span>
+        </div>
+
+        <!-- One-way Flight Section -->
+        <div id="one-way-flight" class="input-group mb-3" style="display: none;">
+            <span class="input-group-text">One way -</span>
+            <span class="input-group-text">From</span>
+            <input type="date" class="input-group-text">
+            <input type="text" class="form-control" placeholder="Destination">
+            <span>
+                <form action="/action_page.php">
+                    <div class="form-floating">
+                        <select class="form-select" id="sel1" name="sellist">
+                            <option>Economy</option>
+                            <option>Premium(Business/First)</option>
+                        </select>
+                    </div>
+                </form>
+            </span>
+        </div>
+
+        <!-- Multi-city Flight Section -->
+        <div id="multi-city-flight" class="input-group mb-3" style="display: none;">
+            <span class="input-group-text">Multi-city_</span>
+            <span class="input-group-text">From - To</span>
+            <input type="date" class="input-group-text">
+            <input type="text" class="form-control" placeholder="Destination">
+            <span>
+                <form action="/action_page.php">
+                    <div class="form-floating">
+                        <select class="form-select" id="sel1" name="sellist">
+                            <option>Economy</option>
+                            <option>Premium(Business/First)</option>
+                        </select>
+                    </div>
+                </form>
+            </span>
+        </div>
+
+        <div style="display: flex; justify-content: end;">
+            <button class="btn btn-lg rounded-pill p-3" style="background-color: #8E2157; color: #fff; justify-content: end;">Search Flight</button>
+        </div>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <!-- Bootstrap Modal for Login and Sign Up -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <!-- Login form -->
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Login</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="loginForm">
+                        <div class="mb-3">
+                            <label for="username" class="form-label">Username</label>
+                            <input type="text" class="form-control" id="username" name="username"
+                                placeholder="Enter username">
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="password" name="password"
+                                placeholder="Enter password">
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="rememberMe">
+                            <label class="form-check-label" for="rememberMe">Remember me</label>
+                        </div>
+                        <button type="submit" class="btn text-light"
+                            style="background-color: #8E2157;">Login</button>
+                    </form>
+                </div>
+
+                <!-- Sign-up form -->
+                <div class="modal-body">
+                    <form id="signupForm" style="display: none;">
+                        <div class="mb-3">
+                            <label for="signupUsername" class="form-label">Username</label>
+                            <input type="text" class="form-control" id="signupUsername" name="signupUsername"
+                                placeholder="Enter username">
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="email" name="email"
+                                placeholder="Enter email">
+                        </div>
+                        <div class="mb-3">
+                            <label for="signupPassword" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="signupPassword" name="signupPassword"
+                                placeholder="Password">
+                        </div>
+                        <button type="submit" class="btn text-light" style="background-color: #8E2157;">Sign
+                            Up</button>
+                    </form>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer justify-content-center">
+                    <p>Or Sign in with</p>
+                    <a style="text-decoration: none; color: #000;"
+                        href="https://accounts.google.com/v3/signin/identifier?ifkv=AS5LTAQM_8s84Xb_scdCPStxkwqKciFKrdI1lZ0s9lueQq1HzJPxAW945Hwwa59t_Z_JiWppBgS5Gw&flowName=GlifWebSignIn&flowEntry=ServiceLogin&dsh=S-1509929219%3A1719592606507979&ddm=0">
+                        <i class="fa-brands fa-google fa-lg" style="color: #511f50;"></i>
+                    </a>
+                    <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+                    <button type="button" class="btn text-light" id="switchToSignUp"
+                        style="background-color: #8E2157;">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+if i sign up i want it to store the user credentials in an array and if i log in it should if the information is the same with the one stored in the array
+using javascript
+    <script src="gok.js"></script>
+</body>
+</html>

@@ -1,3 +1,16 @@
+// pre loader start
+window.addEventListener("load", () => {
+  const loader = document.querySelector(".loader");
+
+  loader.classList.add("loader--hidden");
+
+  loader.addEventListener("transitionend", () => {
+    document.body.removeChild(loader);
+  });
+});
+//pre loader ends
+
+
 const countElement = document.getElementById('count');
 const plusButton = document.getElementById('plus');
 const minusButton = document.getElementById('minus');
@@ -89,14 +102,160 @@ $(document).ready(function() {
       $('#countryList').html('');
   });
 });
-document.addEventListener('DOMContentLoaded', function () {
-  const loginForm = document.getElementById('loginForm');
-  const signupForm = document.getElementById('signupForm');
-  const switchToSignUpBtn = document.getElementById('switchToSignUp');
+// document.addEventListener('DOMContentLoaded', function () {
+//   const loginForm = document.getElementById('loginForm');
+//   const signupForm = document.getElementById('signupForm');
+//   const switchToSignUpBtn = document.getElementById('switchToSignUp');
 
-  switchToSignUpBtn.addEventListener('click', function () {
-      loginForm.style.display = 'none';
-      signupForm.style.display = 'block';
-      switchToSignUpBtn.style.display = 'none'; // Hide the switch button after switching to sign up
-  });
+//   switchToSignUpBtn.addEventListener('click', function () {
+//       loginForm.style.display = 'none';
+//       signupForm.style.display = 'block';
+//       switchToSignUpBtn.style.display = 'none'; // Hide the switch button after switching to sign up
+//   });
+// });
+
+
+
+
+
+
+
+
+// login 
+// Array to store user credentials
+const users = [];
+
+// Function to handle sign-up
+document.getElementById('signupForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent form submission
+
+    // Get the values from the sign-up form
+    const signupUsername = document.getElementById('signupUsername').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const signupPassword = document.getElementById('signupPassword').value.trim();
+
+    // Validate inputs
+    if (signupUsername === '' || email === '' || signupPassword === '') {
+        alert('Invalid input! Please fill out all fields.');
+    } else {
+        // Check if the username is already taken
+        const userExists = users.some(user => user.username === signupUsername);
+
+        if (userExists) {
+            alert('Username already exists. Please choose another.');
+        } else {
+            // Store the credentials in the users array
+            const user = {
+                username: signupUsername,
+                email: email,
+                password: signupPassword
+            };
+            users.push(user);
+
+            // Notify the user of successful sign-up
+            alert('Sign-up successful! You can now log in.');
+
+            // Clear the sign-up form
+            document.getElementById('signupForm').reset();
+
+            // Optionally switch back to the login form
+            switchToLogin();
+        }
+    }
 });
+
+// Function to handle login
+document.getElementById('loginForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent form submission
+
+    // Get the values from the login form
+    const loginUsername = document.getElementById('username').value.trim();
+    const loginPassword = document.getElementById('password').value.trim();
+
+    // Validate inputs
+    if (loginUsername === '' || loginPassword === '') {
+        alert('Invalid input! Please enter username and password.');
+    } else {
+        // Check if the credentials exist in the users array
+        const userExists = users.some(user => user.username === loginUsername && user.password === loginPassword);
+
+        if (userExists) {
+            alert('Login successful!');
+            document.getElementById('Sulaimon').innerHTML = 'Welcome , ' + loginUsername + '!';
+
+            // Hide the login/signup button
+            document.querySelector('.gay-hover').style.display = 'none';
+
+            // Display the contact icon
+            const contactIcon = document.createElement('i');
+            contactIcon.className = 'fa-solid fa-user';
+            contactIcon.style.color = '#fff';
+            contactIcon.style.cursor = 'pointer';
+            contactIcon.style.marginTop = '0.5cm';
+            contactIcon.addEventListener('click', showUserInfo);
+
+            document.querySelector('.navbar-nav').appendChild(contactIcon);
+        } else {
+            alert('Invalid username or password.');
+        }
+
+        // Clear form fields after login attempt
+        document.getElementById('loginForm').reset();
+    }
+});
+
+// Function to show user info when contact icon is clicked
+function showUserInfo() {
+    let userInfo = '';
+    users.forEach((user, index) => {
+        userInfo += `User ${index + 1}:\nUsername: ${user.username}\nEmail: ${user.email}\n\n`;
+    });
+
+    alert(userInfo || 'No user information available.');
+    
+}
+
+// Function to switch to the sign-up form
+document.getElementById('switchToSignUp').addEventListener('click', function() {
+    document.getElementById('loginForm').style.display = 'none';
+    document.getElementById('signupForm').style.display = 'block';
+});
+
+// Optional: function to switch back to the login form after signing up
+function switchToLogin() {
+    document.getElementById('loginForm').style.display = 'block';
+    document.getElementById('signupForm').style.display = 'none';
+}
+
+
+
+function toggleFlightOptions(selectedOption) {
+    // Hide all sections initially
+    document.getElementById('return-flight').style.display = 'none';
+    document.getElementById('one-way-flight').style.display = 'none';
+    document.getElementById('multi-city-flight').style.display = 'none';
+
+    // Show the selected section
+    if (selectedOption === 'return') {
+        document.getElementById('return-flight').style.display = 'flex';
+    } else if (selectedOption === 'one-way') {
+        document.getElementById('one-way-flight').style.display = 'flex';
+    } else if (selectedOption === 'multi-city') {
+        document.getElementById('multi-city-flight').style.display = 'flex';
+    }
+}
+
+
+// Function to check if the "About" section is in the viewport
+window.addEventListener('scroll', function() {
+    const luckSection = document.getElementById('luck');
+    const sectionPosition = luckSection.getBoundingClientRect().top;
+    const screenPosition = window.innerHeight;
+  
+    // If the top of the section is within the visible screen area
+    if (sectionPosition < screenPosition) {
+        luckSection.classList.add('visible'); // Add the 'visible' class to trigger the animation
+    } else {
+        luckSection.classList.remove('visible'); // Remove the 'visible' class if you scroll away
+    }
+  });
